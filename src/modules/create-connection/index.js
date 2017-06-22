@@ -1,6 +1,6 @@
 const createConnection = (actions, reduxStore) => {
   // Set up the websocket.
-  var wsc = new WebSocket('ws://174.138.56.13/:3001/');
+  var wsc = new WebSocket('ws://174.138.56.13:3001/');
 
   actions.forEach((action) => {
     console.log('jessexxx', action);
