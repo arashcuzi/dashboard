@@ -1,6 +1,4 @@
-$color-primary: #002b49;
-$color-secondary: #ffb81c;
-$color-tertiary: #002b49;
+@import '../../vars.scss';
 
 $size-base: 12px;
 $size-small: $size-base / 2;
@@ -13,13 +11,6 @@ $clock-weight-small: $size-small / 2;
 $clock-seconds-length: 95%;
 $clock-minutes-length: 85%;
 $clock-hours-length: 75%;
-
-html {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $color-primary;
-}
 
 .content {
   margin-top: 20px;

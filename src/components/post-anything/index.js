@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Card from '../card';
 
 const Content = ({ message }) => (
-  <p>{ message }</p>
+  <p>{ message }&nbsp;</p>
 );
 
 const PostAnything = ({ message = '' }) => (
