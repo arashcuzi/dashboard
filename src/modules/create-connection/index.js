@@ -1,13 +1,20 @@
-export const createConnection = (actions, reduxStore) => {
+const createConnection = (actions, reduxStore) => {
   // Set up the websocket.
   var wsc = new WebSocket('ws://localhost:3001/');
   
   actions.forEach((action) => {
+    console.log('jessexxx', action);
     // Setup the event listener for each 
-    wsc.addEventListener(action, (m) => {
-      reduxStore.dispatch({ type: m.data.type, payload: m.data.payload });
+    wsc.addEventListener('message', (m) => {
+      const data = m.data ? JSON.parse(m.data) : {};
+
+      if (data.type && data.payload) {
+        reduxStore.dispatch({ type: data.type, payload: data.payload });
+      }
     });
   });
 
   return wsc;
 };
+
+export default createConnection;

@@ -1,11 +1,17 @@
+// Modules
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import getStore from './modules/create-store';
-import App from './containers/app';
-import { makeClock } from './containers/clock';
 import createConnection from './modules/create-connection';
 
+// Redux
+import { rootReducer, actions } from './reducers';
+import createStore from './modules/create-store';
+
+// Components
+import App from './components/app';
+
+// Styles
 import 'sanitize.css/sanitize.css';
 import './index.css';
 
@@ -13,21 +19,15 @@ import './index.css';
 const target = document.querySelector('#root');
 
 // Create the store
-const store = getStore();
+const store = createStore(rootReducer);
 
 // Setup the websocket connection
-const wsc = createConnection(actions, store);
+createConnection(actions, store);
 
+// Initial View render
 render(
-  <Provider store={store}>
+  <Provider store={ store }>
     <App />
   </Provider>,
   target
 );
-
-setTimeout(() => {
-  document.getElementById('bangalore');
-  new makeClock('bangalore');
-  new makeClock('milwaukee');
-  new makeClock('new_york');
-}, 1000);

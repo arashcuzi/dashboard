@@ -13,7 +13,7 @@ export const postAnything = (state = initialState, action) => {
     case POST_ANYTHING:
       return {
         ...newState,
-        message: action.payload,
+        message: action.payload.message,
       }
 
     default:
