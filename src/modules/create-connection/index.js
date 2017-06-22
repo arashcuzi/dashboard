@@ -1,10 +1,10 @@
 const createConnection = (actions, reduxStore) => {
   // Set up the websocket.
-  var wsc = new WebSocket('ws://localhost:3001/');
-  
+  var wsc = new WebSocket('ws://174.138.56.13/:3001/');
+
   actions.forEach((action) => {
     console.log('jessexxx', action);
-    // Setup the event listener for each 
+    // Setup the event listener for each
     wsc.addEventListener('message', (m) => {
       const data = m.data ? JSON.parse(m.data) : {};
 
