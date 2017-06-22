@@ -1,7 +1,7 @@
 export const POST_ANYTHING = 'POST_ANYTHING'
 
 const initialState = {
-  message: ''
+  message: 'hello world!'
 }
 
 export default (state = initialState, action) => {
