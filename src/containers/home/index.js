@@ -8,38 +8,27 @@ import {
   decrementAsync
 } from '../../modules/counter'
 import { postAnything } from '../../modules/postAnything';
-import Clock from '../clock'
-import PostAnything from '../postAnything'
+
+import CardContainer from '../cardContainer'
+
+import Clock from '../../components/clock'
+import PostAnything from '../../components/postAnything'
 
 const Home = props => (
-  <div>
+  <div className='container'>
     <Clock />
-
-    <PostAnything />
-
-    <h1>Home</h1>
-    <p>Count: {props.count}</p>
-
-    <p>
-      <button onClick={props.increment} disabled={props.isIncrementing}>Increment</button>
-      <button onClick={props.incrementAsync} disabled={props.isIncrementing}>Increment Async</button>
-    </p>
-
-    <p>
-      <button onClick={() => props.postAnything('hello world!')}>Post Anything</button>
-    </p>
-
-    <p>
-      <button onClick={props.decrement} disabled={props.isDecrementing}>Decrementing</button>
-      <button onClick={props.decrementAsync} disabled={props.isDecrementing}>Decrement Async</button>
-    </p>
-
-    <p><button onClick={() => props.changePage()}>Go to about page via redux</button></p>
+    <CardContainer>
+      <PostAnything title="Jenkins" subtitle="Build Status" image="images/jenkins.jpeg" text={props.message} />
+      <PostAnything title="Twitter" subtitle="@_ericelliott" text="I'm stepping up ongoing 1:1 mentorships..." />
+      <PostAnything title="Shawn Petros" subtitle="Lunch?" text="LET'S GO!!! I'M STARVING!!!" />
+      <PostAnything title="WeatherBot2000" subtitle="Current Weather" text="It is 69 degrees and sunny!" />
+    </CardContainer>
   </div>
 )
 
 const mapStateToProps = state => ({
   count: state.counter.count,
+  message: state.postAnything.message,
   isIncrementing: state.counter.isIncrementing,
   isDecrementing: state.counter.isDecrementing
 })

@@ -1,19 +1,21 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { postAnything } from '../../modules/postAnything';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 
 const PostAnything = (props) => (
-  <Card>
+  <Card style={{margin: 10}} containerStyle={{borderRadius: 0, backgroundColor: '#7d0000'}}>
     <CardHeader
-      title="Jenkins"
-      subtitle="Your build status, sir..."
-      avatar="images/jenkins.jpeg"
+      titleColor="#cecece"
+      subtitleColor="#cecece"
+      title={props.title}
+      subtitle={props.subtitle}
+      avatar={props.image}
     />
-    <CardText>
-      { props.message }
+    <CardText
+      color="#cecece"
+    >
+      {props.text}
     </CardText>
   </Card>
 );
