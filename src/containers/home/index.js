@@ -9,10 +9,13 @@ import {
 } from '../../modules/counter'
 import { postAnything } from '../../modules/postAnything';
 import Clock from '../clock'
+import PostAnything from '../postAnything'
 
 const Home = props => (
   <div>
     <Clock />
+
+    <PostAnything />
 
     <h1>Home</h1>
     <p>Count: {props.count}</p>
