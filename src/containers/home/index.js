@@ -15,23 +15,20 @@ import Clock from '../../components/clock'
 import PostAnything from '../../components/postAnything'
 
 const Home = props => (
-  <div>
+  <div className='container'>
     <Clock />
     <CardContainer>
-      <PostAnything />
-      <PostAnything />
-      <PostAnything />
-      <PostAnything />
-      <PostAnything />
-      <PostAnything />
-      <PostAnything />
-      <PostAnything />
+      <PostAnything title="Jenkins" subtitle="Build Status" image="images/jenkins.jpeg" text={props.message} />
+      <PostAnything title="Twitter" subtitle="@_ericelliott" text="I'm stepping up ongoing 1:1 mentorships..." />
+      <PostAnything title="Shawn Petros" subtitle="Lunch?" text="LET'S GO!!! I'M STARVING!!!" />
+      <PostAnything title="WeatherBot2000" subtitle="Current Weather" text="It is 69 degrees and sunny!" />
     </CardContainer>
   </div>
 )
 
 const mapStateToProps = state => ({
   count: state.counter.count,
+  message: state.postAnything.message,
   isIncrementing: state.counter.isIncrementing,
   isDecrementing: state.counter.isDecrementing
 })

@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import store from './store'
 import App from './containers/app'
-import { makeClock } from './containers/clock';
+import { makeClock } from './components/clock';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import 'sanitize.css/sanitize.css'
