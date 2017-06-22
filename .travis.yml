@@ -10,8 +10,5 @@ cache:
   - node_modules
 script:
 - docker login -u=$DOCKER_USERNAME -p=$DOCKER_PASSWORD
-- docker build -t arashcuzi/dashboard-client-build . -f Dockerfile.build
-- docker create --name extract arashcuzi/dashboard-client-build /bin/sh
-- docker cp extract:/app/build temp-app
-- docker build --no-cache -t arashcuzi/dashboard-client .
+- docker build -t arashcuzi/dashboard-client .
 - docker push arashcuzi/dashboard-client
