@@ -2,13 +2,13 @@
 
 .clock-container {
   display: flex;
-  padding-top: 30px;
+  padding-top: 40px;
   height: 150px;
   width: 100%;
   background: rgba(0, 0, 0, 0.3);
   color: #cecece;
   align-content: space-between;
-  font-size: 24px;
+  font-size: 18px;
   text-transform: uppercase;
 
   &> div {
@@ -18,13 +18,14 @@
     justify-content: center;
     align-items: center;
 
-    &> * {
+    & * {
+      font-family: 'Roboto Mono', monospace;
       font-weight: 100;
     }
   }
 
   .clock {
-    font-size: 38px;
+    font-size: 28px;
   }
 }
 
