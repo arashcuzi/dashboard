@@ -1,0 +1,35 @@
+.full-screen-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(63, 0, 0, 0.9);
+  color: white;
+  padding: 20px;
+
+  h1 {
+    font-weight: lighter;
+    font-size: 36pt;
+    text-transform: uppercase;
+  }
+
+  img {
+    border: solid 3px white;
+    box-shadow: 10px 10px 40px rgba(0,0,0,0.3);
+    max-width: 55%;
+    margin: 20px auto;
+    display: block;
+  }
+
+  h2 {
+    font-weight: lighter;
+    font-size: 18pt;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-weight: lighter;
+    font-size: 36pt;
+  }
+}

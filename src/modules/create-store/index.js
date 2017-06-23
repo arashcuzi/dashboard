@@ -1,6 +1,6 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import watchPostAnything from '../../sagas/clearMessage';
+import fullScreen from '../../sagas/full-screen';
 
 export const getStore = (rootReducer) => {
   const saga = createSagaMiddleware();
@@ -18,7 +18,7 @@ export const getStore = (rootReducer) => {
   );
 
   // Init sagas
-  saga.run(watchPostAnything);
+  saga.run(fullScreen);
 
   return result;
 };

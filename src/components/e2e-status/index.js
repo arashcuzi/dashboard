@@ -34,7 +34,7 @@ const E2EStatus = ({status}) => {
   };
 
   return (
-    <Card title={'Build Status'} avatar={avatar} background={bg}>
+    <Card title={'E2E Status'} avatar={avatar} background={bg}>
       <Content status={status} />
     </Card>
   );

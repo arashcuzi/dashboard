@@ -2,32 +2,40 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Card from '../card';
 
-const Content = ({ status, pic, user, repo, branch }) => (
-  <div>
-    <p><strong>Status:</strong>{ user }&nbsp;</p>
-    {
-      status === 'FAIL' ?
-        <p><strong>Pic:</strong>{ pic }&nbsp;</p>
-      : null
-    }    
-    <p><strong>User:</strong>{ user }&nbsp;</p>
-    <p><strong>Repository:</strong>{ repo }&nbsp;</p>
-    <p><strong>Branch:</strong>{ branch }&nbsp;</p>
-  </div>
-);
+import jesse from './jesse.jpg';
+import shawn from './shawn.jpg';
 
-const BuildStatus = (props) => (
-  <Card title={'Build Status'} avatar={'images/jenkins.jpeg'}>
-    <Content {...props} />
-  </Card>
-);
+import './styles.css';
+
+const getUserPic = (user) => {
+  if (user === 'sch8134') {
+    return jesse;
+  } else {
+    return shawn;
+  }
+};
+
+const FullScreen = ({ status, user, show = true }) => {
+  let result = <div />;
+
+  if (show) {
+    result = (
+      <div className="full-screen-wrapper">
+        <h1>You Broke It!</h1>
+        <img src={getUserPic(user)} className="full-screen-img" />
+        <h2>Culprit:</h2>
+        <p>{ user }</p>
+      </div>
+    );
+  }
+  
+  return result;
+};
 
 const mapStateToProps = state => ({
   status: state.buildStatus.status,
-  pic: state.buildStatus.pic,
   user: state.buildStatus.user,
-  repo: state.buildStatus.repo,
-  branch: state.buildStatus.branch,
+  show: state.fullScreen,
 });
 
-export default connect(mapStateToProps)(BuildStatus);
+export default connect(mapStateToProps)(FullScreen);

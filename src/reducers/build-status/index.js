@@ -14,6 +14,7 @@ export const buildStatus = (state = initialState, action) => {
       return {
         ...newState,
         status: action.payload.status,
+        user: action.payload.user,
       }
 
     default:

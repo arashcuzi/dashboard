@@ -3,6 +3,7 @@ import Clocks from '../clocks';
 import PostAnything from '../post-anything';
 import BuildStatus from '../build-status';
 import E2EStatus from '../e2e-status';
+import FullScreen from '../full-screen';
 
 import styles from './styles.css';
 
@@ -23,6 +24,7 @@ const App = () => (
     <div className="row">
       <PostAnything />
     </div>
+    <FullScreen />
   </div>
 )
 
