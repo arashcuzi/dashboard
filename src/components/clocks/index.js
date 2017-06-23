@@ -1,5 +1,5 @@
 import React from 'react'
-import './clock.css'
+import './clocks.css'
 
 export class makeClock {
   constructor(id) {
@@ -62,33 +62,19 @@ export class makeClock {
   }
 }
 
-const Clock = () => (
-  <div className="content">
-    <div className="widget clock" id="bangalore" data-timezone="+5:30">
-      <div className="shadow"></div>
-      <div className="hand seconds"></div>
-      <div className="hand minutes"></div>
-      <div className="hand hours"></div>
-      <div className="hand-cap"></div>
-      <label>Bangalore</label>
+export default () => (
+  <div className='clock-container'>
+    <div>
+      <div className='name'>Bangalore</div>
+      <div className='clock'>12:30:30 am</div>
     </div>
-    <div className="widget clock" id="milwaukee" data-timezone="-5">
-      <div className="shadow"></div>
-      <div className="hand seconds"></div>
-      <div className="hand minutes"></div>
-      <div className="hand hours"></div>
-      <div className="hand-cap"></div>
-      <label>Milwaukee</label>
+    <div>
+      <div className='name'>Milwaukee</div>
+      <div className='clock'>12:30:30 am</div>
     </div>
-    <div className="widget clock" id="new_york" data-timezone="-4">
-      <div className="shadow"></div>
-      <div className="hand seconds"></div>
-      <div className="hand minutes"></div>
-      <div className="hand hours"></div>
-      <div className="hand-cap"></div>
-      <label>New York</label>
+    <div>
+      <div className='name'>New York</div>
+      <div className='clock'>12:30:30 am</div>
     </div>
   </div>
 )
-
-export default Clock

@@ -3,7 +3,6 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import createConnection from './modules/create-connection';
-import { makeClock } from './components/clock';
 
 // Redux
 import { rootReducer, actions } from './reducers';
@@ -32,10 +31,3 @@ render(
   </Provider>,
   target
 );
-
-setTimeout(() => {
-  document.getElementById('bangalore');
-  new makeClock('bangalore');
-  new makeClock('milwaukee');
-  new makeClock('new_york');
-}, 1000)
