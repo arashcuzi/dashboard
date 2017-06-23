@@ -5,7 +5,6 @@
   "devDependencies": {
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.0.2",
-    "react-clock": "^1.0.5",
     "react-scripts": "1.0.7"
   },
   "dependencies": {
@@ -18,7 +17,7 @@
     "react-router-dom": "^4.1.1",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.7.0",
-    "redux-thunk": "^2.2.0",
+    "redux-saga": "^0.15.4",
     "sanitize.css": "^5.0.0"
   },
   "scripts": {

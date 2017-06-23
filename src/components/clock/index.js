@@ -3,7 +3,7 @@ import './clock.css'
 
 export class makeClock {
   constructor(id) {
-    this.timezone = parseInt(document.getElementById(id).dataset.timezone);
+    this.timezone = parseInt(document.getElementById(id).dataset.timezone, 10);
 
     if (this.isDST(new Date())) {
       this.timezone += 1;
@@ -29,11 +29,11 @@ export class makeClock {
     const drawSeconds = ((seconds / 60) * 360) + 90;
     const drawMinutes = ((minutes / 60) * 360) + 90;
 
+    let drawHours = ((hours / 12) * 360) + 90;
+
     if (hours >= 12) {
       drawHours = hours - 12;
     }
-
-    let drawHours = ((hours / 12) * 360) + 90;
 
     this.handSeconds.style.transform = `rotate(${drawSeconds}deg)`;
     this.handMinutes.style.transform = `rotate(${drawMinutes}deg)`;

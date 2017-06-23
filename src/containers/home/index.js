@@ -1,43 +1,35 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import {
-  increment,
-  incrementAsync,
-  decrement,
-  decrementAsync
-} from '../../modules/counter'
-import { postAnything } from '../../modules/postAnything';
+import { postAnything } from '../../reducers/post-anything';
 
 import CardContainer from '../cardContainer'
 
 import Clock from '../../components/clock'
-import PostAnything from '../../components/postAnything'
+import Card from '../../components/postAnything'
 
-const Home = props => (
+const hiddenStyle = {
+  display: 'none'
+}
+
+const Home = ({user, message}) => (
   <div className='container'>
     <Clock />
     <CardContainer>
-      <PostAnything title="Jenkins" subtitle="Build Status" image="images/jenkins.jpeg" text={props.message} />
-      <PostAnything title="Twitter" subtitle="@_ericelliott" text="I'm stepping up ongoing 1:1 mentorships..." />
-      <PostAnything title="Shawn Petros" subtitle="Lunch?" text="LET'S GO!!! I'M STARVING!!!" />
-      <PostAnything title="WeatherBot2000" subtitle="Current Weather" text="It is 69 degrees and sunny!" />
+      <Card title="Jenkins" subtitle="Build Status" image="images/jenkins.jpeg" text="Your build status, sir..." />
+      <Card title="Twitter" subtitle="@_ericelliott" text="I'm stepping up ongoing 1:1 mentorships..." />
+      <Card title={user} subtitle="" text={message} style={ message === '' ? hiddenStyle : '' } />
+      <Card title="WeatherBot2000" subtitle="Current Weather" text="It is 69 degrees and sunny!" />
     </CardContainer>
   </div>
 )
 
 const mapStateToProps = state => ({
-  count: state.counter.count,
   message: state.postAnything.message,
-  isIncrementing: state.counter.isIncrementing,
-  isDecrementing: state.counter.isDecrementing
+  user: state.postAnything.user
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  increment,
-  incrementAsync,
-  decrement,
-  decrementAsync,
   postAnything
 }, dispatch)
 

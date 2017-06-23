@@ -1,6 +1,6 @@
 import { createStore, compose } from 'redux';
 
-export const getStore = (rootReducer) => {
+export const getStore = (rootReducer, applyMiddleware) => {
   const initialState = {};
   const enhancers = [];
 
@@ -12,12 +12,12 @@ export const getStore = (rootReducer) => {
     }
   }
 
-  const composedEnhancers = compose(...enhancers);
+  const composedEnhancers = compose(applyMiddleware, ...enhancers);
 
   return createStore(
     rootReducer,
     initialState,
-    composedEnhancers,
+    composedEnhancers
   );
 };
 

@@ -3,7 +3,7 @@ import styles from './styles.css';
 
 const Card = ({ title = '', children }) => (
   <div className="cardWrapper">
-    <h1>{title}</h1>
+    <h1>{ title }</h1>
     <div>
       { children }
     </div>

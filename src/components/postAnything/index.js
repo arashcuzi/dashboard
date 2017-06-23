@@ -3,19 +3,19 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 
-const PostAnything = (props) => (
-  <Card style={{margin: 10}} containerStyle={{borderRadius: 0, backgroundColor: '#7d0000'}}>
+const PostAnything = ({ title, style, subtitle, image, text, message }) => (
+  <Card style={ style ? style : {margin: 10} } containerStyle={{borderRadius: 0, backgroundColor: '#7d0000'}}>
     <CardHeader
       titleColor="#cecece"
       subtitleColor="#cecece"
-      title={props.title}
-      subtitle={props.subtitle}
-      avatar={props.image}
+      title={title}
+      subtitle={subtitle}
+      avatar={image}
     />
     <CardText
       color="#cecece"
     >
-      {props.text}
+      {text}
     </CardText>
   </Card>
 );
