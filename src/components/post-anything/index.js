@@ -6,15 +6,16 @@ const Content = ({ message, user }) => (
   <p>{ message && user ? `${user}: ${message}` : '' }</p>
 );
 
-const PostAnything = ({ message = '', user = '' }) => (
+const PostAnything = ({ messages = [] }) => (
   <Card title={'Post Anything'}>
-    <Content message={message} user={user} />
+    {
+      messages.map(m => <Content message={m.message} user={m.user} />)
+    }
   </Card>
 );
 
 const mapStateToProps = state => ({
-  message: state.postAnything.message,
-  user: state.postAnything.user
+  messages: state.postAnything.messages
 });
 
 export default connect(mapStateToProps)(PostAnything);

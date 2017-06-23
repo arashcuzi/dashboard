@@ -10,7 +10,7 @@ import { rootReducer, actions } from './reducers';
 import createStore from './modules/create-store';
 
 // Components
-import App from './containers/app';
+import App from './components/app';
 
 // Styles
 import 'sanitize.css/sanitize.css';
