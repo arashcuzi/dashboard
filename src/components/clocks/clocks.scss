@@ -1,0 +1,30 @@
+@import '../../vars.scss';
+
+.clock-container {
+  display: flex;
+  padding-top: 30px;
+  height: 150px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  color: #cecece;
+  align-content: space-between;
+  font-size: 24px;
+  text-transform: uppercase;
+
+  &> div {
+    height: 100%;
+    flex-grow: 1;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    &> * {
+      font-weight: 100;
+    }
+  }
+
+  .clock {
+    font-size: 38px;
+  }
+}
+

@@ -5,8 +5,8 @@ import { postAnything } from '../../reducers/post-anything';
 
 import CardContainer from '../cardContainer'
 
-import Clock from '../../components/clock'
 import Card from '../../components/postAnything'
+import Clocks from '../../components/clocks'
 
 const hiddenStyle = {
   display: 'none'
@@ -14,7 +14,7 @@ const hiddenStyle = {
 
 const Home = ({user, message}) => (
   <div className='container'>
-    <Clock />
+    <Clocks />
     <CardContainer>
       <Card title="Jenkins" subtitle="Build Status" image="images/jenkins.jpeg" text="Your build status, sir..." />
       <Card title="Twitter" subtitle="@_ericelliott" text="I'm stepping up ongoing 1:1 mentorships..." />

@@ -4,7 +4,6 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyMiddleware } from 'redux';
 import createConnection from './modules/create-connection';
-import { makeClock } from './components/clock';
 import createSagaMiddleware from 'redux-saga'
 import { watchPostAnything } from './sagas/clearMessage'
 
@@ -39,10 +38,3 @@ render(
   </Provider>,
   target
 );
-
-setTimeout(() => {
-  document.getElementById('bangalore');
-  new makeClock('bangalore');
-  new makeClock('milwaukee');
-  new makeClock('new_york');
-}, 1000)
