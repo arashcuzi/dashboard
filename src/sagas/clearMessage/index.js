@@ -1,10 +1,10 @@
+import { delay } from 'redux-saga';
 import { put, takeLatest } from 'redux-saga/effects';
 import { POST_ANYTHING } from '../../reducers/post-anything'; 
 
 // Our worker Saga: will perform the delay task
 function* thing() {
-  debugger;
-  
+  yield delay(10000);
   yield put({ type: 'CLEAR_MESSAGE' });
 }
 
