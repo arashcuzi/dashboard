@@ -1,5 +1,5 @@
 import React from 'react';
-import Clock from '../clock';
+import Clocks from '../clocks';
 import PostAnything from '../post-anything';
 import BuildStatus from '../build-status';
 
