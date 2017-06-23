@@ -1,0 +1,18 @@
+.post-anything {
+
+  &:first-child {
+    opacity: 1;
+  }
+
+  opacity: .6;
+
+  .user {
+    margin-bottom: -40px;
+    font-size: 20px;
+    opacity: .8;
+  }
+
+  .message {
+    font-size: 35px;
+  }
+}

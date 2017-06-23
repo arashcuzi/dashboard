@@ -4,7 +4,20 @@ export const POST_ANYTHING = 'POST_ANYTHING';
 export const CLEAR_MESSAGE = 'CLEAR_MESSAGE';
 
 const initialState = {
-  messages: []
+  messages: [
+    {
+      user: 'Jesse Schmucker',
+      message: 'Hey Dudes! What up?!'
+    },
+    {
+      user: 'Shawn Petros',
+      message: 'Hey! Stop checking in debugger statements! ಠ_ಠ'
+    },
+    {
+      user: 'Kent Primrose',
+      message: 'La la la la la la la la la...that is all'
+    }
+  ]
 };
 
 export const postAnything = (state = initialState, action) => {

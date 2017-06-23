@@ -1,9 +1,8 @@
 import React from 'react';
-import Clock from '../clock';
+import Clocks from '../clocks';
 import PostAnything from '../post-anything';
 import BuildStatus from '../build-status';
-
-import styles from './styles.css';
+import './styles.css';
 
 const App = () => (
   <div>
