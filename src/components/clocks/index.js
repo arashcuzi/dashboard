@@ -9,9 +9,10 @@ export class makeClock {
       this.timezone += 1;
     }
 
-    this.handSeconds = document.querySelector(`#${id} .hand.seconds`);
-    this.handMinutes = document.querySelector(`#${id} .hand.minutes`);
-    this.handHours = document.querySelector(`#${id} .hand.hours`);
+    this.seconds = document.querySelector(`#${id} .seconds`);
+    this.minutes = document.querySelector(`#${id} .minutes`);
+    this.hours = document.querySelector(`#${id} .hours`);
+    this.tod = document.querySelector(`#${id} .tod`);
 
     this.getTime();
     this.cycle();
@@ -25,36 +26,30 @@ export class makeClock {
     return now.getTimezoneOffset() < dst;
   }
 
-  draw(hours, minutes, seconds) {
-    const drawSeconds = ((seconds / 60) * 360) + 90;
-    const drawMinutes = ((minutes / 60) * 360) + 90;
-
-    let drawHours = ((hours / 12) * 360) + 90;
-
-    if (hours >= 12) {
-      drawHours = hours - 12;
-    }
-
-    this.handSeconds.style.transform = `rotate(${drawSeconds}deg)`;
-    this.handMinutes.style.transform = `rotate(${drawMinutes}deg)`;
-    this.handHours.style.transform = `rotate(${drawHours}deg)`;
-
-    // fix for animation bump on when clock hands hit zero
-    if (drawSeconds === 444 || drawSeconds === 90) {
-      this.handSeconds.style.transition = "all 0s ease 0s";
-    } else {
-      this.handSeconds.style.transition = "all 0.05s cubic-bezier(0, 0, 0.52, 2.51) 0s";
-    }
+  draw(hours, minutes, seconds, tod) {
+    this.seconds.textContent = seconds;
+    this.minutes.textContent = minutes;
+    this.hours.textContent = hours;
+    this.tod.textContent = tod;
   }
 
   getTime() {
     const now = new Date();
+    let hours = now.getUTCHours() + this.timezone;
 
-    const hours = now.getUTCHours() + this.timezone;
-    const minutes = now.getUTCMinutes();
-    const seconds = now.getUTCSeconds();
+    hours = hours < 10 ? `0${hours}` : hours;
+    const minutes = now.getUTCMinutes() < 10 ? `0${now.getUTCMinutes()}` : now.getUTCMinutes();
+    const seconds = now.getUTCSeconds() < 10 ? `0${now.getUTCSeconds()}` : now.getUTCSeconds();
+    let tod = 'am';
 
-    this.draw(hours, minutes, seconds);
+    if (hours >= 12) {
+      hours = hours === 12 ? 12 : hours - 12;
+      tod = 'pm';
+    }
+
+    // console.log(hours, minutes, seconds, tod);
+
+    this.draw(hours, minutes, seconds, tod);
   }
 
   cycle() {
@@ -66,15 +61,15 @@ export default () => (
   <div className='clock-container'>
     <div>
       <div className='name'>Bangalore</div>
-      <div className='clock'>12:30:30 am</div>
+      <div id='bangalore' className='clock' data-timezone='+5:30'><span className='hours'>12</span>:<span className='minutes'>30</span>:<span className='seconds'>30</span>&nbsp;<span className='tod'></span></div>
     </div>
     <div>
       <div className='name'>Milwaukee</div>
-      <div className='clock'>12:30:30 am</div>
+      <div id='milwaukee' className='clock' data-timezone='-5'><span className='hours'>12</span>:<span className='minutes'>30</span>:<span className='seconds'>30</span>&nbsp;<span className='tod'></span></div>
     </div>
     <div>
       <div className='name'>New York</div>
-      <div className='clock'>12:30:30 am</div>
+      <div id='new_york' className='clock' data-timezone='-4'><span className='hours'>12</span>:<span className='minutes'>30</span>:<span className='seconds'>30</span>&nbsp;<span className='tod'></span></div>
     </div>
   </div>
 )

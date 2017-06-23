@@ -6,6 +6,7 @@ import { applyMiddleware } from 'redux';
 import createConnection from './modules/create-connection';
 import createSagaMiddleware from 'redux-saga'
 import { watchPostAnything } from './sagas/clearMessage'
+import { makeClock } from './components/clocks'
 
 // Redux
 import { rootReducer, actions } from './reducers';
@@ -38,3 +39,9 @@ render(
   </Provider>,
   target
 );
+
+setTimeout(() => {
+  new makeClock('bangalore')
+  new makeClock('milwaukee')
+  new makeClock('new_york')
+}, 1)
