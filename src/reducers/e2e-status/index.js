@@ -1,16 +1,16 @@
 import clone from '../../modules/clone';
 
-export const BUILD_STATUS = 'BUILD_STATUS';
+export const E2E_STATUS = 'E2E_STATUS';
 
 const initialState = {
   status: 'PASS',
 };
 
-export const buildStatus = (state = initialState, action) => {
+export const e2eStatus = (state = initialState, action) => {
   const newState = clone(state);
   
   switch (action.type) {
-    case BUILD_STATUS:
+    case E2E_STATUS:
       return {
         ...newState,
         status: action.payload.status,

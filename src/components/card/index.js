@@ -1,13 +1,17 @@
 import React from 'react';
 import styles from './styles.css';
 
-const Card = ({ title = '', children }) => (
-  <div className="cardWrapper">
-    <h1>{ title }</h1>
-    <div>
-      { children }
+const Card = ({ title = '', avatar, background = {}, children }) => {
+  const img = avatar ? { ...avatar } : {};
+  return (
+    <div className="cardWrapper" style={background}>
+      <div style={avatar} />
+      <h1>{ title }</h1>
+      <div>
+        { children }
+      </div>
     </div>
-  </div>
-)
+  );
+};
 
 export default Card;
