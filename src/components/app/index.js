@@ -2,7 +2,6 @@ import React from 'react';
 import Clocks from '../clocks';
 import PostAnything from '../post-anything';
 import BuildStatus from '../build-status';
-import E2EStatus from '../e2e-status';
 
 import styles from './styles.css';
 

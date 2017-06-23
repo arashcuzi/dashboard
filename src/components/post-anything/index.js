@@ -1,15 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Card from '../card';
+import './postAnything.css';
 
 const Content = ({ message, user }) => (
-  <p>{ message && user ? `${user}: ${message}` : '' }</p>
+  <div className='post-anything'>
+    <p className='user'>{ user }</p>
+    <p className='message'>{ message }</p>
+  </div>
 );
 
 const PostAnything = ({ messages = [] }) => (
   <Card title={'Post Anything'}>
     {
-      messages.map(m => <Content message={m.message} user={m.user} />)
+      messages.map((m, i) => <Content message={m.message} user={m.user} key={i} />)
     }
   </Card>
 );

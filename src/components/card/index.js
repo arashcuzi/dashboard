@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.css';
+import './styles.css';
 
 const Card = ({ title = '', avatar, background = {}, children }) => {
   const img = avatar ? { ...avatar } : {};
