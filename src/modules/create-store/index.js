@@ -1,24 +1,26 @@
-import { createStore, compose } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import watchPostAnything from '../../sagas/clearMessage';
 
-export const getStore = (rootReducer, applyMiddleware) => {
+export const getStore = (rootReducer) => {
+  const saga = createSagaMiddleware();
   const initialState = {};
-  const enhancers = [];
+  let devTools;
 
-  if (process.env.NODE_ENV === 'development') {
-    const devToolsExtension = window.devToolsExtension;
-
-    if (typeof devToolsExtension === 'function') {
-      enhancers.push(devToolsExtension());
-    }
+  if (process.env.NODE_ENV === 'development' && typeof window.devToolsExtension === 'function') {
+    devTools = window.devToolsExtension;
   }
 
-  const composedEnhancers = compose(applyMiddleware, ...enhancers);
-
-  return createStore(
+  const result = createStore(
     rootReducer,
     initialState,
-    composedEnhancers
+    compose(applyMiddleware(saga), devTools())
   );
+
+  // Init sagas
+  saga.run(watchPostAnything);
+
+  return result;
 };
 
 export default getStore;
