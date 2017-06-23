@@ -4,19 +4,24 @@ export const POST_ANYTHING = 'POST_ANYTHING';
 export const CLEAR_MESSAGE = 'CLEAR_MESSAGE';
 
 const initialState = {
-  message: '',
-  user: ''
+  messages: []
 };
 
 export const postAnything = (state = initialState, action) => {
   const newState = clone(state);
+  const messages = newState.messages.filter((el, i) => i < 2);
 
   switch (action.type) {
     case POST_ANYTHING:
       return {
         ...newState,
-        message: action.payload.message,
-        user: action.payload.user
+        messages: [
+          {
+            message: action.payload.message,
+            user: action.payload.user
+          },
+          ...messages
+        ]
       }
 
     case CLEAR_MESSAGE:
